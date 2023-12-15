@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class BinarySearchTreeTest {
 
@@ -47,9 +47,9 @@ class BinarySearchTreeTest {
     @Test
     void testSearchElementInEmptyTree() {
         Integer searchElement = 3;
+        Integer foundElement = searchTree.searchElement(searchElement);
 
-        assertThrows(BinarySearchTreeEmptyException.class,
-                () -> searchTree.searchElement(searchElement), "SearchElement() should throw BinarySearchTreeEmptyException when empty");
+        assertNull(foundElement);
     }
 
     @Test
