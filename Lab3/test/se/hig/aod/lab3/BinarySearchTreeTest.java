@@ -62,6 +62,17 @@ class BinarySearchTreeTest {
         }
 
         /**
+         * Test method for {@link BinarySearchTree#addElement(Comparable)} should be able to add duplicates to initialized tree and increase size
+         */
+        @Test
+        void testAddElementDuplicateToInitializedTree() {
+                initializeSearchTree();
+                searchTree.addElement(1);
+                int size = searchTree.size();
+                assertEquals(6, size);
+        }
+
+        /**
          * Test method for {@link BinarySearchTree#searchElement(Comparable)} should return null when tree is empty
          */
         @Test
@@ -91,6 +102,20 @@ class BinarySearchTreeTest {
         void testSearchElementFoundToRightInInitializedTree() {
                 initializeSearchTree();
                 Integer searchElement = 3;
+                Integer foundElement = searchTree.searchElement(searchElement);
+
+                assertEquals(searchElement, foundElement);
+        }
+
+        /**
+         * Test method for {@link BinarySearchTree#searchElement(Comparable)} should find duplicate element
+         */
+        @Test
+        void testSearchElementDuplicateInInitializedTree() {
+                initializeSearchTree();
+                int searchElement = 1;
+
+                searchTree.addElement(searchElement);
                 Integer foundElement = searchTree.searchElement(searchElement);
 
                 assertEquals(searchElement, foundElement);
